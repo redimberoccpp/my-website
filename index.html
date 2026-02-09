@@ -1,121 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Student Registration</title>
-
+<title>Inscription Étudiant</title>
 <style>
 * {
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
 }
-
 body {
-  margin: 0;
-  height: 100vh;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("school.jpg") center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("school.jpg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 /* Registration card */
 .card {
-  background: rgba(255,255,255,0.95);
-  width: 380px;
-  padding: 35px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  text-align: center;
+    background: rgba(255,255,255,0.95);
+    width: 380px;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    text-align: center;
 }
-
 /* Title */
 .card h1 {
-  margin-bottom: 10px;
-  color: #1e3c72;
+    margin-bottom: 10px;
+    color: #1e3c72;
 }
-
 .card p {
-  color: #555;
-  font-size: 14px;
-  margin-bottom: 25px;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 25px;
 }
-
 /* Inputs */
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 15px;
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
 }
-
-input:focus {
-  outline: none;
-  border-color: #1e3c72;
+input:focus, select:focus {
+    outline: none;
+    border-color: #1e3c72;
 }
-
 /* Button */
 button {
-  width: 100%;
-  padding: 12px;
-  background: #1e3c72;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 100%;
+    padding: 12px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
-
 button:hover {
-  background: #16305c;
+    background: #16305c;
 }
-
 /* Footer */
 .footer {
-  margin-top: 15px;
-  font-size: 12px;
-  color: #777;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #777;
 }
 </style>
 </head>
-
 <body>
-
 <div class="card">
-  <h1>Student Registration</h1>
-  <p>Welcome to our school platform</p>
+    <h1>Inscription Étudiant</h1>
+    <p>Bienvenue sur notre plateforme scolaire</p>
+    <input id="name" type="text" placeholder="Nom Complet">
+    
+    <!-- Dropdown for grade -->
+    <select id="grade">
+        <option value="">Sélectionnez votre classe</option>
+        <option value="1ere_annee_college">1ère année du collège</option>
+        <option value="2eme_annee_college">2ème année du collège</option>
+        <option value="3eme_annee_college">3ème année du collège</option>
+        <option value="1ere_annee_lycee">1ère année du lycée</option>
+        <option value="2eme_annee_lycee">2ème année du lycée</option>
+        <option value="3eme_annee_lycee">3ème année du lycée</option>
+    </select>
 
-  <input id="name" type="text" placeholder="Full Name">
-  <input id="grade" type="text" placeholder="Grade">
-
-  <button onclick="goNext()">Continue</button>
-
-  <div class="footer">
-    © Groupe Scolaire
-  </div>
+    <button onclick="goNext()">Continuer</button>
+    <div class="footer">© Groupe Scolaire</div>
 </div>
 
 <script>
 function goNext() {
-  const name = document.getElementById("name").value;
-  const grade = document.getElementById("grade").value;
-
-  if(name === "" || grade === "") {
-    alert("Please fill in all fields");
-    return;
-  }
-
-  localStorage.setItem("name", name);
-  localStorage.setItem("grade", grade);
-  window.location.href = "choice.html";
+    const name = document.getElementById("name").value;
+    const grade = document.getElementById("grade").value;
+    if(name === "" || grade === "") {
+        alert("Veuillez remplir tous les champs");
+        return;
+    }
+    localStorage.setItem("name", name);
+    localStorage.setItem("grade", grade);
+    window.location.href = "choice.html";
 }
 </script>
-
 </body>
 </html>
