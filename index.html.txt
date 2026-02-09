@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .box {
+      background: rgba(0,0,0,0.3);
+      padding: 30px;
+      border-radius: 12px;
+      width: 300px;
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      background: #00ffcc;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Register</h2>
+  <input id="name" placeholder="Full Name">
+  <input id="grade" placeholder="Grade">
+  <button onclick="goNext()">Continue</button>
+</div>
+
+<script>
+  function goNext() {
+    const name = document.getElementById("name").value;
+    const grade = document.getElementById("grade").value;
+
+    if(name === "" || grade === ""){
+      alert("Fill all fields!");
+      return;
+    }
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("grade", grade);
+    window.location.href = "choice.html";
+  }
+</script>
+
+</body>
+</html>
